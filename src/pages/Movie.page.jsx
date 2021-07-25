@@ -1,7 +1,13 @@
 //import React from 'react';
 
 const Movie = () => {
-    return <>Hii </>;
+    return <>
+    <div>
+<img src="" alt="" />
+
+
+    </div>
+     </>;
     
 };
 
