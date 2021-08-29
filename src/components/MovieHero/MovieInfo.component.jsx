@@ -1,16 +1,32 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import { MovieContext } from '../../context/movie.context';
+//components
+import PaymentModal from '../PaymentModal/payment.component';
 
 
 
 const MovieInfo = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const[price,setPrice] = useState(0);
     const {movie} = useContext(MovieContext) ;
     //optional chaining
-    const genres = movie.genres?.map(({ name }) => name).join(", ")
+    const genres = movie.genres?.map(({ name }) => name).join(", ");
     // without optional chaining -> movie.genres && movie.genres.map(({ name }) => name).join(", ")
+    const rentMovies= () => {
+        setIsOpen(true);
+        setPrice(149);
+    };
+    const buyMovies= () => {
+        setIsOpen(true);
+        setPrice(549);
+    };
+
+
+    
     return (
     <> 
-    <div className="flex flex-col gap-3  lg:gap- 8 "> 
+    <PaymentModal setIsOpen={setIsOpen}  isOpen={isOpen} price={price} />
+    <div className="flex flex-col gap-3  lg:gap-8 "> 
      <div className="flex items-center  gap-3 md:px-4">
          <div className="w-40 h-8">
        <img src="https://in.bmscdn.com/moviemode/tvod/premiere-tag.png"
@@ -27,11 +43,11 @@ const MovieInfo = () => {
      </div>
      
          <div className="flex items-center gap-3 md:px-4 md:w-screen lg:w-full">
-         <button className="bg-prem-700 w-full py-3 font-semibold rounded-lg text-white">
+         <button onClick={rentMovies} className="bg-prem-700 w-full py-3 font-semibold rounded-lg text-white">
              Rent ₹149
          </button>
-         <button className="bg-prem-700 w-full py-3 font-semibold rounded-lg text-white">
-             Buy ₹149
+         <button onClick={buyMovies} className="bg-prem-700 w-full py-3 font-semibold rounded-lg text-white">
+             Buy ₹549
          </button>
          </div>
          

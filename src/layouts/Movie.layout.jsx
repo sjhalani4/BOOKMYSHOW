@@ -20,7 +20,7 @@ import MovieNavbar from "../components/Navbar/movieNavbar.component";
         };
         requestMovie();
         
- },[id]);
+ },[id]); 
 
     return (
         <>
