@@ -10,7 +10,7 @@ export default function PaymentModal({isOpen, setIsOpen, price}) {
 
   const launchRazorPay = () => {
         let options ={
-            key:"rzp_test_duYop3PCstEmHs",
+            key:"rzp_test_0n52LmT8zjfNPF",
             amount: price*100,
             currency:"INR",
             name: "Book Jhalani Show",
